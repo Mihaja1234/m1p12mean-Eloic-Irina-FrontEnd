@@ -18,7 +18,6 @@ export class EditUserComponent implements OnInit {
         private route: ActivatedRoute,
         private userService: UserService,
         private router: Router,
-        private toastr: ToastrService // Injecter ToastrService
     ) {}
 
     ngOnInit(): void {
@@ -32,7 +31,7 @@ export class EditUserComponent implements OnInit {
                     this.user = data; // Assigner les données à l'objet user
                 },
                 (error) => {
-                    this.toastr.error('Erreur lors du chargement des données', 'Erreur');
+                    console.error('Erreur lors du chargement des données', 'Erreur');
                 }
             );
         }
@@ -41,11 +40,11 @@ export class EditUserComponent implements OnInit {
     updateUser(): void {
         this.userService.updateUser(this.user._id, this.user).subscribe(
             (response) => {
-                this.toastr.success('Utilisateur mis à jour avec succès', 'Succès');
+                console.error('Utilisateur mis à jour avec succès', 'Succès');
                 this.router.navigate(['/users']); // Rediriger vers la liste des utilisateurs
             },
             (error) => {
-                this.toastr.error('Erreur lors de la mise à jour', 'Erreur');
+                console.error('Erreur lors de la mise à jour', 'Erreur');
             }
         );
     }
