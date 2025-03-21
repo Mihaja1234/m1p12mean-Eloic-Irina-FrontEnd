@@ -1,0 +1,105 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.promotion-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+.promotion-item {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: calc(33.333% - 20px); /* 3 promotions per row */
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+.promotion-item:hover {
+  transform: scale(1.05);
+}
+.promotion-img img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.promotion-info {
+  padding: 15px;
+}
+.promotion-info h3 {
+  margin: 10px 0;
+  font-size: 1.2em;
+}
+.promotion-info p {
+  margin: 5px 0;
+  font-size: 0.9em;
+  color: #555;
+}
+.promotion-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background-color: #f8f8f8;
+  border-top: 1px solid #ddd;
+}
+.promotion-actions button,
+.promotion-actions a {
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+.promotion-actions a {
+  background-color: #2e7d32;
+  color: white;
+}
+/* Bouton Ajouter une promotion */
+.promotion-actions a:hover {
+  background-color: #1b5e20;
+}
+/* Bouton Modifier (Vert) */
+.btn-modifier {
+  background-color: #4caf50; /* Vert */
+  color: white;
+}
+.btn-modifier:hover {
+  background-color: #388e3c; /* Vert foncé */
+}
+/* Bouton Supprimer (Rouge) */
+.btn-supprimer {
+  background-color: #f44336; /* Rouge */
+  color: white;
+}
+.btn-supprimer:hover {
+  background-color: #d32f2f; /* Rouge foncé */
+}
+.add-promotion-button {
+  display: block;
+  margin: 20px auto;
+  background-color: #00796b;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1.1em;
+  text-align: center;
+  width: 200px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.add-promotion-button:hover {
+  background-color: #004d40;
+}

@@ -1,0 +1,88 @@
+
+
+  /* Titre principal et sous-titre */
+  .form-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  /* Style global du formulaire */
+  .service-form {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* En-têtes de champ de formulaire */
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    color: #333;
+  }
+
+  /* Champs de formulaire */
+  input[type="text"],
+  input[type="number"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+
+  /* Textarea (pour la description complète) */
+  textarea {
+    height: 150px;
+    resize: vertical;
+  }
+
+  /* Boutons */
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  /* Style du bouton de réinitialisation */
+  #resetBtn {
+    background-color: #f44336;
+    color: white;
+  }
+
+  /* Style du bouton de soumission */
+  #submitBtn {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  /* Changement de couleur au survol des boutons */
+  button:hover {
+    opacity: 0.8;
+  }
+
+  /* Style des champs de fichier */
+  input[type="file"] {
+    padding: 5px;
+    font-size: 16px;
+  }
+
+  /* Style du select pour la catégorie */
+  select {
+    background-color: #fff;
+  }
+

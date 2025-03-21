@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Demandes de Congé</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .demande-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .demande-item {
+            display: flex;
+            justify-content: space-between;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .demande-info {
+            display: flex;
+            gap: 20px;
+        }
+
+        .demande-info img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+
+        .demande-details {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .demande-actions {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+        }
+
+        .demande-actions button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .demande-actions button.refuser {
+            background-color: #f44336;
+        }
+
+        .demande-actions a {
+            margin-top: 10px;
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .demande-actions a:hover {
+            text-decoration: underline;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .pending-demands {
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 20px;
+        }
+
+        .approved-demands {
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Liste des Demandes de Congé</h1>
+
+    <!-- Section des demandes en attente -->
+    <div class="pending-demands">
+        <div class="section-title">Demandes en attente de validation</div>
+        <div class="demande-list">
+            <!-- Exemple de demande de congé en attente -->
+            <div class="demande-item">
+                <div class="demande-info">
+                    <img src="photo_mecanicien.jpg" alt="Photo Mécanicien">
+                    <div class="demande-details">
+                        <strong>Nom:</strong> Jean Dupont<br>
+                        <strong>Date d'envoi:</strong> 15 mars 2025<br>
+                        <strong>Motif:</strong> Problèmes de santé<br>
+                        <strong>Date début:</strong> 20 mars 2025<br>
+                        <strong>Date fin:</strong> 25 mars 2025<br>
+                        <strong>Description:</strong> Congé pour traitement médical suite à une intervention.
+                    </div>
+                </div>
+
+                <div class="demande-actions">
+                    <button>Valider</button>
+                    <button class="refuser">Refuser</button>
+                    <a routerLink="/planning" target="_blank">Voir le planning</a>
+                </div>
+            </div>
+
+            <!-- Autre exemple de demande de congé en attente -->
+            <div class="demande-item">
+                <div class="demande-info">
+                    <img src="photo_mecanicien2.jpg" alt="Photo Mécanicien">
+                    <div class="demande-details">
+                        <strong>Nom:</strong> Alice Martin<br>
+                        <strong>Date d'envoi:</strong> 18 mars 2025<br>
+                        <strong>Motif:</strong> Vacances<br>
+                        <strong>Date début:</strong> 1 avril 2025<br>
+                        <strong>Date fin:</strong> 10 avril 2025<br>
+                        <strong>Description:</strong> Congé annuel pour des vacances en famille.
+                    </div>
+                </div>
+
+                <div class="demande-actions">
+                    <button>Valider</button>
+                    <button class="refuser">Refuser</button>
+                    <a href="/planning" target="_blank">Voir le planning</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section des demandes validées -->
+    <div class="approved-demands">
+        <div class="section-title">Demandes validées</div>
+        <div class="demande-list">
+            <!-- Exemple de demande de congé validée -->
+            <div class="demande-item">
+                <div class="demande-info">
+                    <img src="photo_mecanicien3.jpg" alt="Photo Mécanicien">
+                    <div class="demande-details">
+                        <strong>Nom:</strong> Marc Lefevre<br>
+                        <strong>Date d'envoi:</strong> 10 mars 2025<br>
+                        <strong>Motif:</strong> Congé parental<br>
+                        <strong>Date début:</strong> 1 mai 2025<br>
+                        <strong>Date fin:</strong> 15 mai 2025<br>
+                        <strong>Description:</strong> Congé pour s'occuper de son enfant.
+                    </div>
+                </div>
+
+                <div class="demande-actions">
+                    <button disabled>Validée</button>
+                    <button class="refuser" disabled>Refusée</button>
+                    <a href="/planning" target="_blank">Voir le planning</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+       <!-- Pagination -->
+       <div class="pagination">
+        <button id="prevPage" onclick="changePage(-1)" class="disabled">Précédent</button>
+        <span id="pageNumber">Page 1</span>
+        <button id="nextPage" onclick="changePage(1)">Suivant</button>
+    </div>
+
+</div>
+
+</body>
+</html>

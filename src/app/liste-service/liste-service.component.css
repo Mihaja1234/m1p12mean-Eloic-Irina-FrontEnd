@@ -1,0 +1,76 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.service-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+.service-item {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: calc(33.333% - 20px); /* 3 services par ligne */
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+.service-item:hover {
+  transform: scale(1.05);
+}
+.service-img img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.service-info {
+  padding: 15px;
+}
+.service-info h3 {
+  margin: 10px 0;
+  font-size: 1.2em;
+}
+.service-info p {
+  margin: 5px 0;
+  font-size: 0.9em;
+  color: #555;
+}
+.service-info .price,
+.service-info .registration {
+  font-weight: bold;
+  color: #2e7d32;
+}
+.service-info .registration {
+  font-style: italic;
+  color: #777;
+}
+.service-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 15px;
+}
+.service-actions a {
+  text-decoration: none;
+  background-color: #2e7d32;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  transition: background-color 0.3s;
+}
+.service-actions a:hover {
+  background-color: #1b5e20;
+}

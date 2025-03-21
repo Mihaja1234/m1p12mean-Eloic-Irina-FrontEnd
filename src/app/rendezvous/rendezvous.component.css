@@ -1,0 +1,93 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.container {
+  width: 80%;
+  max-width: 1200px;  /* Limite la largeur de la page */
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+  text-align: center;
+  color: #333;
+}
+.section {
+  margin-bottom: 30px;
+}
+.section h2 {
+  color: #333;
+  text-align: center;
+}
+.filter {
+  margin-bottom: 15px;
+  text-align: center;
+}
+.filter input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.appointment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.appointment {
+  display: flex;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  justify-content: space-between;
+}
+.appointment img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.appointment-info {
+  flex: 1;
+  margin-left: 20px;
+}
+.appointment-info p {
+  margin: 5px 0;
+}
+.appointment-info .status {
+  font-weight: bold;
+}
+.appointment-info .status.valid {
+  color: red;
+}
+.appointment-info .status.refused {
+  color: red;
+}
+.appointment-info .status.pending {
+  color: orange;
+}
+.appointment a {
+  text-decoration: none;
+  color: #007BFF;
+}
+.appointment a:hover {
+  text-decoration: underline;
+}
+.view-more {
+  text-align: center;
+  margin-top: 20px;
+}
+.view-more a {
+  font-weight: bold;
+  color: #007BFF;
+}

@@ -1,0 +1,115 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f4f4f4;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.demande-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.demande-item {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.demande-info {
+  display: flex;
+  gap: 20px;
+}
+
+.demande-info img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.demande-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.demande-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.demande-actions button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.demande-actions button.refuser {
+  background-color: #f44336;
+}
+
+.demande-actions a {
+  margin-top: 10px;
+  color: #007BFF;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.demande-actions a:hover {
+  text-decoration: underline;
+}
+
+.section-title {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.pending-demands {
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 20px;
+}
+
+.approved-demands {
+  padding-top: 20px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.pagination button.disabled {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}

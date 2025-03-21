@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liste de Rendez-vous</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      width: 80%;
+      max-width: 1200px;  /* Limite la largeur de la page */
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .section h2 {
+      color: #333;
+      text-align: center;
+    }
+    .filter {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .filter input {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .appointment-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .appointment {
+      display: flex;
+      padding: 15px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      align-items: center;
+      justify-content: space-between;
+    }
+    .appointment img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .appointment-info {
+      flex: 1;
+      margin-left: 20px;
+    }
+    .appointment-info p {
+      margin: 5px 0;
+    }
+    .appointment-info .status {
+      font-weight: bold;
+    }
+    .appointment-info .status.valid {
+      color: red;
+    }
+    .appointment-info .status.refused {
+      color: red;
+    }
+    .appointment-info .status.pending {
+      color: orange;
+    }
+    .appointment a {
+      text-decoration: none;
+      color: #007BFF;
+    }
+    .appointment a:hover {
+      text-decoration: underline;
+    }
+    .view-more {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .view-more a {
+      font-weight: bold;
+      color: #007BFF;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Liste des Rendez-vous</h1>
+
+    <!-- Rendez-vous Prévu -->
+    <div class="section">
+      <h2>Rendez-vous Prévu</h2>
+      <div class="appointment-list">
+        <div class="appointment">
+          <img src="client1.jpg" alt="Client 1">
+          <div class="appointment-info">
+            <p><strong>Nom:</strong> Jean Dupont</p>
+            <p><strong>Date d'envoi:</strong> 20 mars 2025</p>
+            <p><strong>Date du rendez-vous:</strong> 25 mars 2025</p>
+            <p><strong>Heure:</strong> 14:00</p>
+            <p class="status valid">Valide par l'administrateur il y a 3 heures</p>
+            <a href="#">Voir les détails</a>
+          </div>
+        </div>
+        <div class="appointment">
+          <img src="client2.jpg" alt="Client 2">
+          <div class="appointment-info">
+            <p><strong>Nom:</strong> Marie Martin</p>
+            <p><strong>Date d'envoi:</strong> 21 mars 2025</p>
+            <p><strong>Date du rendez-vous:</strong> 26 mars 2025</p>
+            <p><strong>Heure:</strong> 10:00</p>
+            <p class="status valid">Valide par l'administrateur il y a 1 heure</p>
+            <a href="#">Voir les détails</a>
+          </div>
+        </div>
+      </div>
+      <div class="view-more">
+        <a href="#">Voir plus de rendez-vous</a>
+      </div>
+    </div>
+
+    <!-- Rendez-vous En Attente -->
+    <div class="section">
+      <h2>Rendez-vous En Attente</h2>
+      <div class="filter">
+        <label for="dateFilter">Filtrer par Date:</label>
+        <input type="date" id="dateFilter">
+      </div>
+      <div class="appointment-list">
+        <div class="appointment">
+          <img src="client3.jpg" alt="Client 3">
+          <div class="appointment-info">
+            <p><strong>Nom:</strong> Luc Moreau</p>
+            <p><strong>Date d'envoi:</strong> 20 mars 2025</p>
+            <p><strong>Date du rendez-vous:</strong> 23 mars 2025</p>
+            <p><strong>Heure:</strong> 16:00</p>
+            <p class="status pending">Rendez-vous en attente</p>
+            <a href="#">Voir les détails</a>
+          </div>
+        </div>
+        <div class="appointment">
+          <img src="client4.jpg" alt="Client 4">
+          <div class="appointment-info">
+            <p><strong>Nom:</strong> Sophie Leclerc</p>
+            <p><strong>Date d'envoi:</strong> 19 mars 2025</p>
+            <p><strong>Date du rendez-vous:</strong> 24 mars 2025</p>
+            <p><strong>Heure:</strong> 11:30</p>
+            <p class="status pending">Rendez-vous en attente</p>
+            <a href="#">Voir les détails</a>
+          </div>
+        </div>
+      </div>
+      <div class="view-more">
+        <a href="#">Voir plus de rendez-vous en attente</a>
+      </div>
+    </div>
+
+    <!-- Rendez-vous Refusé -->
+    <div class="section">
+      <h2>Rendez-vous Refusé</h2>
+      <div class="appointment-list">
+        <div class="appointment">
+          <img src="client5.jpg" alt="Client 5">
+          <div class="appointment-info">
+            <p><strong>Nom:</strong> Paul Boucher</p>
+            <p><strong>Date d'envoi:</strong> 18 mars 2025</p>
+            <p><strong>Date du rendez-vous:</strong> 22 mars 2025</p>
+            <p><strong>Heure:</strong> 12:00</p>
+            <p class="status refused">REFUSÉ</p>
+            <a href="#">Voir les détails</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
