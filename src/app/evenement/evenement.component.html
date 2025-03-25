@@ -1,65 +1,68 @@
-
 <div class="container">
   <h1>Liste des Événements</h1>
 
+  <!-- Filtre de recherche -->
+  <div class="search-container">
+    <input
+      type="text"
+      [(ngModel)]="searchQuery"
+      placeholder="Rechercher un événement"
+      class="search-input">
+    <button class="search-button">Rechercher</button>
+  </div>
+
   <!-- Bouton Ajouter un événement -->
-  <a href="#" class="add-event-button">Ajouter un événement</a>
+  <a class="add-event-button" (click)="openAddModal()">Ajouter un événement</a>
 
+  <!-- Liste des événements -->
   <div class="event-list">
-      <!-- Exemple d'événement 1 -->
-      <div class="event-item">
-          <div class="event-img">
-              <img src="event1.jpg" alt="Événement 1">
-          </div>
-          <div class="event-info">
-              <h3>Concert de Rock</h3>
-              <p><strong>Description:</strong> Un concert de rock avec plusieurs groupes locaux.</p>
-              <p><strong>Date début:</strong> 25 mars 2025</p>
-              <p><strong>Date fin:</strong> 26 mars 2025</p>
-          </div>
-          <div class="event-actions">
-              <a href="#">Ajouter une promotion</a>
-              <button class="btn-modifier">Modifier</button>
-              <button class="btn-supprimer">Supprimer</button>
-          </div>
+    <div *ngFor="let event of filteredEvents(); let i = index" class="event-item">
+      <div class="event-img">
+        <img [src]="event.img" [alt]="event.name">
       </div>
-
-      <!-- Exemple d'événement 2 -->
-      <div class="event-item">
-          <div class="event-img">
-              <img src="event2.jpg" alt="Événement 2">
-          </div>
-          <div class="event-info">
-              <h3>Festival de Cinéma</h3>
-              <p><strong>Description:</strong> Projection des meilleurs films de l'année.</p>
-              <p><strong>Date début:</strong> 1 avril 2025</p>
-              <p><strong>Date fin:</strong> 5 avril 2025</p>
-          </div>
-          <div class="event-actions">
-              <a href="#">Ajouter une promotion</a>
-              <button class="btn-modifier">Modifier</button>
-              <button class="btn-supprimer">Supprimer</button>
-          </div>
+      <div class="event-info">
+        <h3>{{ event.name }}</h3>
+        <p><strong>Description:</strong> {{ event.description }}</p>
+        <p><strong>Date début:</strong> {{ event.startDate | date }}</p>
+        <p><strong>Date fin:</strong> {{ event.endDate | date }}</p>
       </div>
-
-      <!-- Exemple d'événement 3 -->
-      <div class="event-item">
-          <div class="event-img">
-              <img src="event3.jpg" alt="Événement 3">
-          </div>
-          <div class="event-info">
-              <h3>Salon de l'Automobile</h3>
-              <p><strong>Description:</strong> Exposition des derniers modèles de véhicules de luxe.</p>
-              <p><strong>Date début:</strong> 10 avril 2025</p>
-              <p><strong>Date fin:</strong> 12 avril 2025</p>
-          </div>
-          <div class="event-actions">
-              <a href="#">Ajouter une promotion</a>
-              <button class="btn-modifier">Modifier</button>
-              <button class="btn-supprimer">Supprimer</button>
-          </div>
+      <div class="event-actions">
+        <a routerLink="/promotion">Ajouter Promotion</a>
+        <button class="btn-modifier" (click)="openEditModal(i)">Modifier</button>
+        <button class="btn-supprimer" (click)="deleteEvent(i)">Supprimer</button>
       </div>
-
-      <!-- Ajoutez d'autres événements ici -->
+    </div>
   </div>
 </div>
+
+<!-- Modal d'ajout/édition d'événement -->
+<div class="modal" [ngClass]="{'open': isModalOpen}">
+  <div class="modal-content">
+    <h2>{{ isEditMode ? 'Modifier un événement' : 'Ajouter un événement' }}</h2>
+    <form (ngSubmit)="isEditMode ? updateEvent() : addEvent()">
+      <div>
+        <label for="name">Nom de l'événement</label>
+        <input type="text" id="name" [(ngModel)]="newEvent.name" name="name" required>
+      </div>
+      <div>
+        <label for="description">Description</label>
+        <input type="text" id="description" [(ngModel)]="newEvent.description" name="description" required>
+      </div>
+      <div>
+        <label for="startDate">Date de début</label>
+        <input type="date" id="startDate" [(ngModel)]="newEvent.startDate" name="startDate" required>
+      </div>
+      <div>
+        <label for="endDate">Date de fin</label>
+        <input type="date" id="endDate" [(ngModel)]="newEvent.endDate" name="endDate" required>
+      </div>
+      <div class="modal-actions">
+        <button type="submit">{{ isEditMode ? 'Mettre à jour' : 'Ajouter' }}</button>
+        <button type="button" (click)="closeModal()">Annuler</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+

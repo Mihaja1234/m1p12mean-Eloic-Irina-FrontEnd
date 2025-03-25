@@ -2,78 +2,62 @@
   <h1>Liste des Promotions</h1>
 
   <!-- Bouton Ajouter une promotion -->
-  <a href="#" class="add-promotion-button">Ajouter une promotion</a>
+  <a class="add-promotion-button" (click)="openAddModal()">Ajouter une promotion</a>
 
+  <!-- Modal pour ajouter ou modifier une promotion -->
+  <div class="modal" *ngIf="isModalOpen">
+    <div class="modal-content">
+      <h2>{{ isEditMode ? 'Modifier une Promotion' : 'Ajouter une Promotion' }}</h2>
+      <form (ngSubmit)="isEditMode ? updatePromotion() : addPromotion()">
+        <div class="form-group">
+          <label for="promotionName">Nom de la promotion:</label>
+          <input type="text" id="promotionName" [(ngModel)]="currentPromotion.name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="promotionDescription">Description:</label>
+          <input type="text" id="promotionDescription" [(ngModel)]="currentPromotion.description" name="description" required>
+        </div>
+        <div class="form-group">
+          <label for="promotionStartDate">Date début:</label>
+          <input type="date" id="promotionStartDate" [(ngModel)]="currentPromotion.startDate" name="startDate" required>
+        </div>
+        <div class="form-group">
+          <label for="promotionEndDate">Date fin:</label>
+          <input type="date" id="promotionEndDate" [(ngModel)]="currentPromotion.endDate" name="endDate" required>
+        </div>
+        <div class="form-group">
+          <label for="promotionDiscount">Réduction (%):</label>
+          <input type="number" id="promotionDiscount" [(ngModel)]="currentPromotion.discount" name="discount" required min="0" max="100">
+        </div>
+        <div class="form-group">
+          <label for="promotionCode">Code promo:</label>
+          <input type="text" id="promotionCode" [(ngModel)]="currentPromotion.code" name="code" required>
+        </div>
+
+        <button type="submit" class="btn-submit">{{ isEditMode ? 'Modifier' : 'Ajouter' }}</button>
+        <button type="button" class="btn-close" (click)="closeModal()">Fermer</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Liste des promotions -->
   <div class="promotion-list">
-      <!-- Exemple de promotion 1 -->
-      <div class="promotion-item">
-          <div class="promotion-img">
-              <img src="promotion1.jpg" alt="Promotion 1">
-          </div>
-          <div class="promotion-info">
-              <h3>Promotion sur le Concert de Rock</h3>
-              <p><strong>Nom de la promotion:</strong> Réduction sur les billets</p>
-              <p><strong>Description:</strong> Obtenez 20% de réduction sur les billets pour le concert de rock.</p>
-              <p><strong>Date début:</strong> 25 mars 2025</p>
-              <p><strong>Date fin:</strong> 26 mars 2025</p>
-              <p><strong>Réduction:</strong> 20%</p>
-              <p><strong>Services concernés:</strong> Billets, restauration</p>
-              <p><strong>Conditions:</strong> Offre valable pour les premiers 1000 billets achetés.</p>
-              <p><strong>Code promo:</strong> ROCK20</p>
-          </div>
-          <div class="promotion-actions">
-              <a href="#">Ajouter une promotion</a>
-              <button class="btn-modifier">Modifier</button>
-              <button class="btn-supprimer">Supprimer</button>
-          </div>
+    <div *ngFor="let promotion of promotions; let i = index" class="promotion-item">
+      <div class="promotion-img">
+        <img [src]="promotion.img" [alt]="promotion.name">
       </div>
-
-      <!-- Exemple de promotion 2 -->
-      <div class="promotion-item">
-          <div class="promotion-img">
-              <img src="promotion2.jpg" alt="Promotion 2">
-          </div>
-          <div class="promotion-info">
-              <h3>Promotion Festival de Cinéma</h3>
-              <p><strong>Nom de la promotion:</strong> 10% de réduction sur les tickets</p>
-              <p><strong>Description:</strong> Profitez de 10% de réduction sur les tickets pour le Festival de Cinéma.</p>
-              <p><strong>Date début:</strong> 1 avril 2025</p>
-              <p><strong>Date fin:</strong> 5 avril 2025</p>
-              <p><strong>Réduction:</strong> 10%</p>
-              <p><strong>Services concernés:</strong> Billets de cinéma, concessions</p>
-              <p><strong>Conditions:</strong> Offre valable pendant toute la durée du festival.</p>
-              <p><strong>Code promo:</strong> CINEMA10</p>
-          </div>
-          <div class="promotion-actions">
-              <a href="#">Ajouter une promotion</a>
-              <button class="btn-modifier">Modifier</button>
-              <button class="btn-supprimer">Supprimer</button>
-          </div>
+      <div class="promotion-info">
+        <h3>{{ promotion.name }}</h3>
+        <p><strong>Description:</strong> {{ promotion.description }}</p>
+        <p><strong>Date début:</strong> {{ promotion.startDate }}</p>
+        <p><strong>Date fin:</strong> {{ promotion.endDate }}</p>
+        <p><strong>Réduction:</strong> {{ promotion.discount }}%</p>
+        <p><strong>Code promo:</strong> {{ promotion.code }}</p>
       </div>
-
-      <!-- Exemple de promotion 3 -->
-      <div class="promotion-item">
-          <div class="promotion-img">
-              <img src="promotion3.jpg" alt="Promotion 3">
-          </div>
-          <div class="promotion-info">
-              <h3>Promotion Salon de l'Automobile</h3>
-              <p><strong>Nom de la promotion:</strong> Remise sur les véhicules de luxe</p>
-              <p><strong>Description:</strong> Profitez d'une remise exclusive sur l'achat de véhicules de luxe pendant le salon.</p>
-              <p><strong>Date début:</strong> 10 avril 2025</p>
-              <p><strong>Date fin:</strong> 12 avril 2025</p>
-              <p><strong>Réduction:</strong> 15%</p>
-              <p><strong>Services concernés:</strong> Véhicules de luxe, services après-vente</p>
-              <p><strong>Conditions:</strong> Offre valable uniquement pour les réservations effectuées pendant le salon.</p>
-              <p><strong>Code promo:</strong> AUTO15</p>
-          </div>
-          <div class="promotion-actions">
-              <a href="#">Ajouter une promotion</a>
-              <button class="btn-modifier">Modifier</button>
-              <button class="btn-supprimer">Supprimer</button>
-          </div>
+      <div class="promotion-actions">
+        <button class="btn-modifier" (click)="openEditModal(i)">Modifier</button>
+        <button class="btn-supprimer" (click)="deletePromotion(i)">Supprimer</button>
       </div>
-
-      <!-- Ajoutez d'autres promotions ici -->
+    </div>
   </div>
 </div>

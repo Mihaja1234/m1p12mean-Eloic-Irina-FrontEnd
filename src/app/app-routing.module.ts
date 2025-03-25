@@ -9,6 +9,13 @@ import { PromotionComponent } from './promotion/promotion.component';
 import { PlanningComponent } from './planning/planning.component';
 import { RendezvousComponent } from './rendezvous/rendezvous.component';
 import { TableaubordComponent } from './tableaubord/tableaubord.component';
+import { PrendrdvComponent } from './prendrdv/prendrdv.component';
+import { OffresComponent } from './offres/offres.component';
+import { ConseilTechComponent } from './conseil-tech/conseil-tech.component';
+import { EntretienComponent } from './entretien/entretien.component';
+import { DevisComponent } from './devis/devis.component';
+import { ProfitComponent } from './profit/profit.component';
+
 
 
 
@@ -24,6 +31,13 @@ const routes: Routes = [
 { path: 'planning', component: PlanningComponent},
 { path: 'rendezvous', component: RendezvousComponent},
 { path: 'dashboard', component: TableaubordComponent},
+{ path: 'rdv', component: PrendrdvComponent},
+{ path: 'offre', component: OffresComponent},
+{ path: 'conseiltech', component: ConseilTechComponent},
+{ path: 'entretien', component: EntretienComponent},
+{ path: 'devis', component: DevisComponent},
+{ path: 'profit', component: ProfitComponent}
+
 
 
 ];

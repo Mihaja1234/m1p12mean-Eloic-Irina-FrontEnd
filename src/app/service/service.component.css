@@ -1,88 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* En-tête du formulaire */
+.form-header {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #00796b;
+  color: white;
+  border-radius: 8px 8px 0 0;
+  width: 100%; /* S’assure que l'en-tête prend toute la largeur de l'écran */
+  max-width: 800px; /* Limite la largeur à la même taille que le formulaire */
+  margin: 0 auto; /* Centrer l'en-tête au milieu de l'écran */
+}
+
+/* Titre principal */
+.form-header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+/* Sous-titre */
+.form-header h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
 
 
-  /* Titre principal et sous-titre */
-  .form-header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+.service-form {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
+}
 
-  /* Style global du formulaire */
+.service-form label {
+  font-weight: bold;
+  margin-top: 15px;
+  display: block;
+  color: #555;
+}
+
+.service-form input,
+.service-form textarea,
+.service-form select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+
+.service-form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.service-form .form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.service-form .form-actions button {
+  background-color: #00796b;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.service-form .form-actions button:hover {
+  background-color: #004d40;
+}
+
+.service-form .form-actions button[type="button"] {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.service-form .form-actions button[type="button"]:hover {
+  background-color: #bdbdbd;
+}
+
+.service-form input[type="file"] {
+  padding: 8px;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
   .service-form {
-    width: 50%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
   }
 
-  /* En-têtes de champ de formulaire */
-  label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    display: block;
-    color: #333;
+  .service-form .form-actions {
+      flex-direction: column;
+      gap: 15px;
   }
 
-  /* Champs de formulaire */
-  input[type="text"],
-  input[type="number"],
-  select,
-  textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 16px;
+  .service-form .form-actions button {
+      width: 100%;
   }
-
-  /* Textarea (pour la description complète) */
-  textarea {
-    height: 150px;
-    resize: vertical;
-  }
-
-  /* Boutons */
-  .form-actions {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-
-  /* Style du bouton de réinitialisation */
-  #resetBtn {
-    background-color: #f44336;
-    color: white;
-  }
-
-  /* Style du bouton de soumission */
-  #submitBtn {
-    background-color: #4CAF50;
-    color: white;
-  }
-
-  /* Changement de couleur au survol des boutons */
-  button:hover {
-    opacity: 0.8;
-  }
-
-  /* Style des champs de fichier */
-  input[type="file"] {
-    padding: 5px;
-    font-size: 16px;
-  }
-
-  /* Style du select pour la catégorie */
-  select {
-    background-color: #fff;
-  }
-
+}

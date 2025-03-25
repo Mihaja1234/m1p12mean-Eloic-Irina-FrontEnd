@@ -5,102 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des Demandes de Congé</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f4f4f4;
-        }
 
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .demande-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .demande-item {
-            display: flex;
-            justify-content: space-between;
-            background-color: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .demande-info {
-            display: flex;
-            gap: 20px;
-        }
-
-        .demande-info img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-        }
-
-        .demande-details {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .demande-actions {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            text-align: center;
-        }
-
-        .demande-actions button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        .demande-actions button.refuser {
-            background-color: #f44336;
-        }
-
-        .demande-actions a {
-            margin-top: 10px;
-            color: #007BFF;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .demande-actions a:hover {
-            text-decoration: underline;
-        }
-
-        .section-title {
-            font-size: 1.5em;
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        .pending-demands {
-            border-bottom: 2px solid #ccc;
-            padding-bottom: 20px;
-        }
-
-        .approved-demands {
-            padding-top: 20px;
-        }
     </style>
 </head>
 <body>
@@ -129,7 +34,7 @@
                 <div class="demande-actions">
                     <button>Valider</button>
                     <button class="refuser">Refuser</button>
-                    <a routerLink="/planning" target="_blank">Voir le planning</a>
+                    <a href="/planning" target="_blank">Voir le planning</a>
                 </div>
             </div>
 
@@ -183,14 +88,28 @@
         </div>
     </div>
 
-       <!-- Pagination -->
-       <div class="pagination">
+    <!-- Pagination -->
+    <div class="pagination">
         <button id="prevPage" onclick="changePage(-1)" class="disabled">Précédent</button>
         <span id="pageNumber">Page 1</span>
         <button id="nextPage" onclick="changePage(1)">Suivant</button>
     </div>
 
 </div>
+
+<script>
+    // Logique pour changer de page (pagination)
+    let currentPage = 1;
+
+    function changePage(direction) {
+        currentPage += direction;
+        document.getElementById('pageNumber').innerText = 'Page ' + currentPage;
+
+        // Désactiver les boutons si nécessaire
+        document.getElementById('prevPage').disabled = currentPage === 1;
+        document.getElementById('nextPage').disabled = currentPage === 3;  // Supposons 3 pages max
+    }
+</script>
 
 </body>
 </html>

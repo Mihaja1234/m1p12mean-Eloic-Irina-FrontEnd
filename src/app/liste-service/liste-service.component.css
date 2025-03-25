@@ -1,76 +1,128 @@
+/* Global styles */
 body {
   font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
 }
+
 .container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 30px auto;
   padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
 h1 {
   text-align: center;
+  font-size: 2.5em;
   margin-bottom: 30px;
+  color: #00796b;
 }
-.service-list {
+
+/* Search input and button */
+.search-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 20px;
+  justify-content: center;
+  margin-bottom: 30px;
+  gap: 10px;
 }
-.service-item {
-  background-color: white;
+
+.search-input {
+  width: 60%;
+  padding: 10px;
+  font-size: 1em;
   border: 1px solid #ddd;
-  border-radius: 8px;
-  width: calc(33.333% - 20px); /* 3 services par ligne */
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
-}
-.service-item:hover {
-  transform: scale(1.05);
-}
-.service-img img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-.service-info {
-  padding: 15px;
-}
-.service-info h3 {
-  margin: 10px 0;
-  font-size: 1.2em;
-}
-.service-info p {
-  margin: 5px 0;
-  font-size: 0.9em;
-  color: #555;
-}
-.service-info .price,
-.service-info .registration {
-  font-weight: bold;
-  color: #2e7d32;
-}
-.service-info .registration {
-  font-style: italic;
-  color: #777;
-}
-.service-actions {
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px 15px;
-}
-.service-actions a {
-  text-decoration: none;
-  background-color: #2e7d32;
-  color: white;
-  padding: 8px 15px;
   border-radius: 5px;
-  font-size: 0.9em;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.search-input:focus {
+  border-color: #00796b;
+}
+
+.search-button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
   transition: background-color 0.3s;
 }
-.service-actions a:hover {
-  background-color: #1b5e20;
+
+.search-button:hover {
+  background-color: #004d40;
 }
+
+/* Service list styles */
+.service-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.service-item {
+  display: flex;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.service-img img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.service-info {
+  flex-grow: 1;
+  margin-left: 20px;
+}
+
+.service-info h3 {
+  margin: 0;
+  font-size: 1.6em;
+  color: #00796b;
+}
+
+.service-info p {
+  font-size: 1.1em;
+  color: #555;
+  margin: 5px 0;
+}
+
+.service-actions {
+  display: flex;
+}
+
+/* Bouton Delete */
+.delete-button {
+  padding: 8px 15px;
+  background-color: #f44336; /* Couleur rouge */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.delete-button:hover {
+  background-color: #d32f2f; /* Couleur rouge foncé au survol */
+  transform: scale(1.05); /* Légère animation de zoom */
+}
+
+.delete-button:focus {
+  outline: none; /* Retire le contour par défaut */
+  box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.5); /* Ombre au focus pour attirer l'attention */
+}
+
